@@ -19,7 +19,8 @@ SOURCES += plugin.cpp \
 
 RESOURCES += ../icons/core_icons.qrc
 
-target.path = $$[QT_INSTALL_QML]/Material
+QML_INSTALL_PATH=$$(QML2_IMPORT_PATH)#$$[QT_INSTALL_QML]
+target.path = $$QML_INSTALL_PATH/Material
 
 material.files += qmldir \
                     components/* \
@@ -27,21 +28,21 @@ material.files += qmldir \
                     core/* \
                     popups/* \
                     window/*
-material.path = $$[QT_INSTALL_QML]/Material
+material.path = $$QML_INSTALL_PATH/Material
 
 extras.files += extras/*
-extras.path = $$[QT_INSTALL_QML]/Material/Extras
+extras.path = $$QML_INSTALL_PATH/Material/Extras
 
 listitems.files += listitems/*
-listitems.path = $$[QT_INSTALL_QML]/Material/ListItems
+listitems.path = $$QML_INSTALL_PATH/Material/ListItems
 
 styles.files += styles/*
-styles.path = $$[QT_INSTALL_QML]/QtQuick/Controls/Styles/Material
+styles.path = $$QML_INSTALL_PATH/QtQuick/Controls/Styles/Material
 
-qmldir.target = $$[QT_INSTALL_QML]/Material/qmldir
+qmldir.target = $$QML_INSTALL_PATH/Material/qmldir
 qmldir.commands = sed \"s/$$LITERAL_HASH plugin material/plugin material/\" $$PWD/qmldir > $$qmldir.target
 qmldir.depends = $$PWD/qmldir
-qmldir.path = $$[QT_INSTALL_QML]/Material
+qmldir.path = $$QML_INSTALL_PATH/Material
 
 INSTALLS += target material extras listitems styles qmldir
 
