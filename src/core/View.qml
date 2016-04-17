@@ -42,6 +42,7 @@ Item {
     default property alias data: rect.data
 
     property bool elevationInverted: false
+    property bool enableTintColorAnimation: true
 
     property var topShadow: [
         {
@@ -164,6 +165,7 @@ Item {
         clip: true
 
         Behavior on color {
+            enabled: enableTintColorAnimation
             ColorAnimation { duration: 200 }
         }
     }

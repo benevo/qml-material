@@ -33,6 +33,7 @@ View {
 
     property int dividerInset: 0
     property bool showDivider: false
+    property color hoveColor: Qt.rgba(0,0,0,0.03)
 
     signal clicked()
     signal pressAndHold()
@@ -55,10 +56,10 @@ View {
         anchors.fill: parent
 
         enabled: listItem.interactive && listItem.enabled
-        z: -1
+//        z: -1
     }
 
     tintColor: selected
                ? Qt.rgba(0,0,0,0.05)
-               : ink.containsMouse ? Qt.rgba(0,0,0,0.03) : Qt.rgba(0,0,0,0)
+               : ink.containsMouse ? hoveColor : Qt.rgba(0,0,0,0)
 }
