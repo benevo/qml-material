@@ -62,9 +62,9 @@ Item {
                 return ''
             } else if (icon.source.indexOf('icon://') === 0) {
                 var name = icon.source.substring(7)
-
+                name =name.replace('/', '_')
                 if (name)
-                    return "qrc:/icons/" + name + '.svg'
+                    return "icons/" + name + '.svg'
                 else
                     return ""
             } else {
