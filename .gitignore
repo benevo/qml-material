@@ -11,3 +11,4 @@ deploy_key
 deploy_key.pub
 documentation/ditaxml
 .DS_Store
+tmp/
